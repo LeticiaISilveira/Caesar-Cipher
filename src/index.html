@@ -1,45 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
-    <link rel="icon" type="imagem/png" href="./images/icons8-cadeado-2-24.png" />
-    <title>Caesar Cipher</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Cabin+Condensed|Dosis|Handlee|Heebo|Lacquer|Lalezar|Lexend+Giga|Libre+Franklin|Lora|Marck+Script|Monoton|Muli|Neucha|Ruda|Sawarabi+Mincho|Tangerine|Ultra&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Montserrat|Open+Sans|Open+Sans+Condensed:300&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071311">
+    <link rel="icon" type="image/png" href="./images/icons8-cadeado-2-24.png">
+    <title>Caesar Cipher — mensagens em código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1 class="title"><img src="./images/icons8-cadeado-2-24.png" alt="" /> Caesar Cipher
-        </h1>
-    </header>
-    <article>
-        <h2> Para maior segurança das suas senhas, arquive-as codificadas. </h2>
-        <form>
-            <p class="tooltip"> ?
-                <span class="tooltip-text">É simples!   (: </br>
-                    1º  Digite o texto a ser cifrado/decifrado. </br>
-                    2º  Digite a chave de deslocamento. </br>
-                    3º  Selecione a opção cifrar/decifrar.</br>
-                    4º  Clique em "Enviar" para visualizar o resultado.</br>
+    <div class="ambient ambient--top" aria-hidden="true"></div>
+    <div class="ambient ambient--bottom" aria-hidden="true"></div>
+
+    <main class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Caesar Cipher, início">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10M6.5 10h11a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18.5v-7A1.5 1.5 0 0 1 6.5 10Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="14.5" r="1.2" fill="currentColor"/>
+                        <path d="M12 15.7v1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
                 </span>
-                </p>
-            <textarea required id="txt" placeholder="Digite seu texto:"></textarea>
-            <label class="offset-label">Chave:</label>
-            <input type="number" placeholder="nº" id="offset" required />
-            <select id="option" name="option">
-                <option value="1">Cifrar</option>
-                <option value="2">Decifrar</option>
-            </select>
-            <img id="copy" src="./images/icons8-copiar-24.png" alt="" />
-            <img id="clear" src="./images/icons8-limpar.png" alt="" />
-            </br><button id="btn-enviar">Enviar</button>
-        </form>
-    </article>
+                <span class="brand-name">caesar<span>.</span></span>
+            </a>
+            <div class="status-chip"><span class="status-dot"></span> Cifra clássica <span class="chip-divider">/</span> ROT</div>
+        </header>
+
+        <section class="hero" aria-labelledby="page-title">
+            <p class="eyebrow"><span class="eyebrow-line"></span> CRIPTOGRAFIA, DO SEU JEITO</p>
+            <h1 id="page-title">Uma mensagem.<br><span>Um novo código.</span></h1>
+            <p class="hero-description">Explore a cifra de César: escolha o deslocamento e transforme seu texto, caractere por caractere.</p>
+        </section>
+
+        <section class="cipher-card" aria-label="Ferramenta de cifra de César">
+            <div class="card-heading">
+                <div>
+                    <span class="section-index">01 <span>/</span> MENSAGEM</span>
+                    <h2>Seu texto, em segredo.</h2>
+                </div>
+                <div class="help-wrap">
+                    <button class="help-button" type="button" aria-label="Como usar" aria-describedby="help-text">?</button>
+                    <span class="tooltip-text" id="help-text" role="tooltip">
+                        <strong>Como funciona</strong>
+                        <span>01 — Digite uma mensagem.</span>
+                        <span>02 — Escolha a chave de deslocamento.</span>
+                        <span>03 — Selecione cifrar ou decifrar.</span>
+                        <span>04 — Pressione o botão para ver o resultado.</span>
+                    </span>
+                </div>
+            </div>
+
+            <form>
+                <label class="field-label" for="txt">MENSAGEM</label>
+                <div class="textarea-wrap">
+                    <textarea required id="txt" placeholder="Escreva ou cole sua mensagem aqui..."></textarea>
+                    <span class="textarea-corner" aria-hidden="true"></span>
+                </div>
+
+                <div class="control-row">
+                    <div class="control-group">
+                        <label class="field-label" for="offset">CHAVE DE DESLOCAMENTO</label>
+                        <div class="offset-control">
+                            <span class="offset-symbol" aria-hidden="true">↗</span>
+                            <input type="number" placeholder="03" id="offset" required aria-label="Chave de deslocamento">
+                        </div>
+                    </div>
+                    <div class="control-group mode-group">
+                        <label class="field-label" for="option">OPERAÇÃO</label>
+                        <div class="select-wrap">
+                            <select id="option" name="option">
+                                <option value="1">Cifrar mensagem</option>
+                                <option value="2">Decifrar mensagem</option>
+                            </select>
+                            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none">
+                                <path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="utility-actions" aria-label="Ações da mensagem">
+                        <button class="icon-button" id="copy" type="button" aria-label="Copiar mensagem" title="Copiar mensagem">
+                            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                                <rect x="7" y="6" width="9" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+                                <path d="M13 6V4.5A1.5 1.5 0 0 0 11.5 3h-7A1.5 1.5 0 0 0 3 4.5v9A1.5 1.5 0 0 0 4.5 15H7" stroke="currentColor" stroke-width="1.4"/>
+                            </svg>
+                            <span>Copiar</span>
+                        </button>
+                        <span class="utility-divider" aria-hidden="true"></span>
+                        <button class="icon-button" id="clear" type="button" aria-label="Limpar mensagem" title="Limpar mensagem">
+                            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.5 6h11M8 6V4h4v2m2.5 0-.7 9.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5.5 6m2.8 3v4m3.4-4v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Limpar</span>
+                        </button>
+                    </div>
+                    <button id="btn-enviar" type="submit">
+                        <span>Cifrar mensagem</span>
+                        <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <footer class="page-footer">
+            <span>FEITO PARA MENTES CURIOSAS</span>
+            <span class="footer-mark" aria-hidden="true">✳</span>
+            <span>UMA CIFRA HISTÓRICA, SEM MISTÉRIO</span>
+        </footer>
+    </main>
     <script src="index.js"></script>
     <script src="cipher.js"></script>
 </body>
