@@ -18,8 +18,7 @@ tipos de criptografias conhecidas na história. O imperador romano Júlio César
 utilizava essa cifra para enviar ordens secretas aos seus generais no campo de
 batalha.
 
-<img width="788" height="662" alt="image" src="https://github.com/user-attachments/assets/5646d39e-cc85-487b-8055-0c21d97867e7" />
-
+![caeser-cipher](https://user-images.githubusercontent.com/11894994/60990999-07ffdb00-a320-11e9-87d0-b7c291bc4cd1.png)
 
 A cifra de César é uma das técnicas mais simples de cifrar uma mensagem. É um
 tipo de cifra por substituição, em que cada letra do texto original é
@@ -53,8 +52,8 @@ Acesse a interface através do (link https://leticiaisilveira.github.io/Caesar-C
 
 O design do projeto é funcional, simples e intuitivo. O usuário pode observar o objetivo de forma clara, mas caso tenha alguma dúvida, a opção help-me "?" detalha os quatros passos para utilização da aplicação.
 
+<img width="788" height="662" alt="image" src="https://github.com/user-attachments/assets/5646d39e-cc85-487b-8055-0c21d97867e7" />
 
-![screen-Cipher](https://github.com/LeticiaISilveira/SAP003-cipher/blob/master/src/images/screen-Cipher.png)
 ## Usuário
 Qualquer pessoa que queira acrescentar mais segurança às suas senhas por meio da codificação/cifra. 
 
