@@ -18,7 +18,8 @@ tipos de criptografias conhecidas na história. O imperador romano Júlio César
 utilizava essa cifra para enviar ordens secretas aos seus generais no campo de
 batalha.
 
-![caeser-cipher](https://user-images.githubusercontent.com/11894994/60990999-07ffdb00-a320-11e9-87d0-b7c291bc4cd1.png)
+<img width="788" height="662" alt="image" src="https://github.com/user-attachments/assets/5646d39e-cc85-487b-8055-0c21d97867e7" />
+
 
 A cifra de César é uma das técnicas mais simples de cifrar uma mensagem. É um
 tipo de cifra por substituição, em que cada letra do texto original é
